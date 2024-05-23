@@ -31,11 +31,6 @@ public class MemoryGameDao implements GameDaoInterface {
     }
 
     @Override
-    public void updateGame(int gameID, GameData updatedGame) {
-        games.put(gameID, updatedGame);
-    }
-
-    @Override
     public boolean joinGame(int gameID, String username, String playerColor) {
         GameData game = games.get(gameID);
         if (game == null) return false;

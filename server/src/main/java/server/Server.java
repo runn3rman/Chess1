@@ -13,14 +13,7 @@ public class Server {
     }
 
     public int run(int desiredPort) {
-        // Initialize the database and tables before starting the server
-        /*try {
-            DatabaseManager.createDatabase();
-            DatabaseManager.initializeDatabaseTables();
-        } catch (DataAccessException e) {
-            e.printStackTrace();
-            System.exit(1); // Exit if we can't set up the database
-        }*/
+
         Spark.port(desiredPort);
 
         Spark.staticFiles.location("web");
@@ -29,10 +22,6 @@ public class Server {
         UserDaoInterface userDao = new MemoryUserDao();
         GameDaoInterface gameDao = new MemoryGameDao();
         AuthTokenDaoInterface authTokenDao = new MemoryAuthTokenDao(); // Create an instance of AuthTokenDao
-
-        //UserDaoInterface userDao = new SqlUserDao();
-        //GameDaoInterface gameDao = new SqlGameDao();
-        //AuthTokenDaoInterface authTokenDao = new SqlAuthTokenDao();
 
         // Services with singleton DAOs
         clearService = new ClearService(userDao, gameDao, authTokenDao);

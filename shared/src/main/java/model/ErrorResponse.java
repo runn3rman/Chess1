@@ -13,9 +13,7 @@ public class ErrorResponse {
     }
 
     // Setter
-    public void setMessage(String message) {
-        this.message = message;
-    }
+
 }
 
 

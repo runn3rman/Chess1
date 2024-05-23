@@ -5,24 +5,24 @@ import model.UserData;
 import java.util.HashMap;
 
 public class MemoryUserDao implements UserDaoInterface {
-    private static final HashMap<String, UserData> Users = new HashMap<>();
+    private static final HashMap<String, UserData> USERS = new HashMap<>();
 
     @Override
     public void clearUsers() {
-        Users.clear();
+        USERS.clear();
     }
 
     @Override
     public UserData getUser(String username) {
-        return Users.get(username);
+        return USERS.get(username);
     }
 
     @Override
     public void insertUser(UserData user) throws DataAccessException {
-        if (Users.containsKey(user.username())) {
+        if (USERS.containsKey(user.username())) {
             throw new DataAccessException("User already exists");
         }
-        Users.put(user.username(), user);
+        USERS.put(user.username(), user);
     }
 
 

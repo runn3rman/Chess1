@@ -1,4 +1,3 @@
-//TODO, make sure that the tests all pass. join game successes.
 package unit;
 
 import dataaccess.*;

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;renamed authTokens to AuthTokens&quot;" />
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;handlePawnPromotion is now called instead of duplicated&quot;">
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/LoginRequest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,15 +246,7 @@
       <workItem from="1716403422527" duration="472000" />
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
-      <workItem from="1716429675785" duration="11047000" />
-    </task>
-    <task id="LOCAL-00002" summary="fix(tests) compare collections">
-      <option name="closed" value="true" />
-      <created>1705427255466</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1705427255466</updated>
+      <workItem from="1716429675785" duration="11375000" />
     </task>
     <task id="LOCAL-00003" summary="&quot;removed NotImplemented errors for Bishop move&quot;">
       <option name="closed" value="true" />
@@ -638,7 +632,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716491790564</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="&quot;handlePawnPromotion is now called instead of duplicated&quot;">
+      <option name="closed" value="true" />
+      <created>1716492059963</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1716492059964</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +658,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;makeMove&quot;" />
     <MESSAGE value="&quot;comments for clarity&quot;" />
     <MESSAGE value="&quot;helper function tags&quot;" />
     <MESSAGE value="&quot;added missed helper function comments&quot;" />
@@ -681,7 +682,8 @@
     <MESSAGE value="&quot;Working correctly through phase 3&quot;" />
     <MESSAGE value="&quot;modifications for code quality&quot;" />
     <MESSAGE value="&quot;renamed authTokens to AuthTokens&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;renamed authTokens to AuthTokens&quot;" />
+    <MESSAGE value="&quot;handlePawnPromotion is now called instead of duplicated&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;handlePawnPromotion is now called instead of duplicated&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

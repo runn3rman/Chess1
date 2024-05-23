@@ -181,9 +181,6 @@ class KnightMovement extends ChessPieceMovement {
         return knightHops;
     }
 
-    private boolean isWithinBoard(int row, int col) {
-        return row > 0 && row <= 8 && col > 0 && col <= 8;
-    }
 }
 
 class KingMovement extends ChessPieceMovement {

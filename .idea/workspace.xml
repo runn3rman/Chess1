@@ -149,12 +149,12 @@
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unit.*" />
+          <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.ServiceTests" />
+      <option name="MAIN_CLASS_NAME" value="service.ServiceTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -164,12 +164,12 @@
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unit.*" />
+          <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="unit.ServiceTests" />
+      <option name="MAIN_CLASS_NAME" value="service.ServiceTests" />
       <option name="METHOD_NAME" value="loginSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">

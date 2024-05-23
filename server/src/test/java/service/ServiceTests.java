@@ -1,4 +1,4 @@
-package unit;
+package service;
 
 import dataaccess.*;
 import model.AuthData;
@@ -7,7 +7,6 @@ import model.JoinGameRequest;
 import model.UserData;
 import org.junit.jupiter.api.*;
 import org.mindrot.jbcrypt.BCrypt;
-import service.*;
 
 import java.util.List;
 

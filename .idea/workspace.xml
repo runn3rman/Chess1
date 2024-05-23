@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;handlePawnPromotion is now called instead of duplicated&quot;">
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/model/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/LoginRequest.java" afterDir="false" />
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;code quality. removed unused code, renamed constants&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryAuthTokenDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryAuthTokenDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryUserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared/chess/KingMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/chess/KingMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared/chess/KnightMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/chess/KnightMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared/model/GameCreationRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/model/GameCreationRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/shared/model/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/model/LoginRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/unit/ServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/unit/ServiceTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +144,7 @@
       <recent name="unit" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.passoff.chess in shared">
+  <component name="RunManager" selected="JUnit.StandardAPITests">
     <configuration name="ServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -215,9 +223,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.passoff.chess in shared" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.ServiceTests" />
+        <item itemvalue="JUnit.passoff.chess in shared" />
         <item itemvalue="JUnit.ServiceTests.loginSuccess" />
         <item itemvalue="JUnit.StandardAPITests.badColorJoin" />
       </list>
@@ -246,15 +254,7 @@
       <workItem from="1716403422527" duration="472000" />
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
-      <workItem from="1716429675785" duration="11375000" />
-    </task>
-    <task id="LOCAL-00003" summary="&quot;removed NotImplemented errors for Bishop move&quot;">
-      <option name="closed" value="true" />
-      <created>1705525511285</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1705525511285</updated>
+      <workItem from="1716429675785" duration="12769000" />
     </task>
     <task id="LOCAL-00004" summary="&quot;Chess Position tests passed&quot;">
       <option name="closed" value="true" />
@@ -640,7 +640,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716492059964</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="&quot;code quality. removed unused code, renamed constants&quot;">
+      <option name="closed" value="true" />
+      <created>1716492523141</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1716492523141</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -658,7 +666,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;comments for clarity&quot;" />
     <MESSAGE value="&quot;helper function tags&quot;" />
     <MESSAGE value="&quot;added missed helper function comments&quot;" />
     <MESSAGE value="&quot;added a million files&quot;" />
@@ -683,7 +690,8 @@
     <MESSAGE value="&quot;modifications for code quality&quot;" />
     <MESSAGE value="&quot;renamed authTokens to AuthTokens&quot;" />
     <MESSAGE value="&quot;handlePawnPromotion is now called instead of duplicated&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;handlePawnPromotion is now called instead of duplicated&quot;" />
+    <MESSAGE value="&quot;code quality. removed unused code, renamed constants&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;code quality. removed unused code, renamed constants&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

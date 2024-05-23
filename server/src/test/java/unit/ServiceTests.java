@@ -136,7 +136,6 @@ public class ServiceTests {
         assertNotNull(result.authToken(), "Auth token should not be null");
     }
 
-
     @Test
     @Order(11)
     @DisplayName("Login Failure - Invalid Credentials")
@@ -179,6 +178,7 @@ public class ServiceTests {
 
         assertTrue(exception.getMessage().contains("Invalid or expired authToken"), "Exception message should indicate invalid or expired authToken");
     }
+
     @Test
     @Order(14)
     @DisplayName("Register Success")
@@ -218,6 +218,7 @@ public class ServiceTests {
 
         assertTrue(exception.getMessage().contains("Username is already taken"), "Exception message should indicate username conflict");
     }
+
     @Test
     @Order(16)
     @DisplayName("Clear All Data Successfully")
@@ -241,5 +242,59 @@ public class ServiceTests {
         assertNull(userDao.getUser(testUsername), "UserDao should not find user after clear");
         assertNull(gameDao.getGame(testGameId), "GameDao should not find game after clear");
         assertNull(authTokenDao.getAuthData(testToken), "AuthTokenDao should not find auth token after clear");
+    }
+
+    @Test
+    @Order(17)
+    @DisplayName("Clear All Data - Empty Database")
+    void clearAllDataEmptyDatabase() {
+        // Ensure the DAOs are empty
+        userDao.clearUsers();
+        gameDao.clearGames();
+        authTokenDao.clearAuthTokens();
+
+        // Attempt to clear all data on an already empty database
+        assertDoesNotThrow(() -> clearService.clearAllData(),
+                "Clearing all data on an empty database should not throw an exception");
+
+        // Verify that each DAO remains empty
+        assertNull(userDao.getUser("anyUser"), "UserDao should not find any user after clear");
+        assertNull(gameDao.getGame(1), "GameDao should not find any game after clear");
+        assertNull(authTokenDao.getAuthData("anyToken"), "AuthTokenDao should not find any auth token after clear");
+    }
+
+
+    @Test
+    @Order(20)
+    @DisplayName("Create Game with Invalid Auth Token")
+    void createGameWithInvalidAuthToken() {
+        String uniqueGameName = gameName + System.currentTimeMillis();
+        Exception exception = assertThrows(Exception.class, () -> createGameService.createGame(invalidAuthToken, uniqueGameName),
+                "Expected to throw due to invalid auth token, but it didn't");
+        assertTrue(exception.getMessage().contains("Error: unauthorized"), "Exception message should indicate authorization failure");
+    }
+
+
+    @Test
+    @Order(23)
+    @DisplayName("Logout Failure - Missing Token")
+    void logoutFailureMissingToken() {
+        Exception exception = assertThrows(Exception.class, () -> logoutService.logout("missingToken"),
+                "Expected to throw due to missing auth token, but it didn't");
+        assertTrue(exception.getMessage().contains("Invalid or expired authToken"), "Exception message should indicate invalid or expired authToken");
+    }
+
+
+    @Test
+    @Order(25)
+    @DisplayName("Login Failure - User Not Found")
+    void loginFailureUserNotFound() {
+        String username = "nonExistentUser";
+        String password = "password123";
+
+        Exception exception = assertThrows(Exception.class, () -> loginService.login(username, password),
+                "Expected to throw due to user not found, but it didn't");
+
+        assertTrue(exception.getMessage().contains("Invalid username or password"), "Exception message should indicate invalid credentials");
     }
 }

@@ -151,12 +151,8 @@ class PawnMovement extends ChessPieceMovement {
             ChessPiece target = board.getPiece(new ChessPosition(row, col));
             if (target != null && target.getTeamColor() != board.getPiece(position).getTeamColor()) {
                 if (row == promotionRow) {
-                    // Handle promotion during capture
-                    for (ChessPiece.PieceType type : ChessPiece.PieceType.values()) {
-                        if (type != ChessPiece.PieceType.PAWN && type != ChessPiece.PieceType.KING) {
-                            moves.add(new ChessMove(position, new ChessPosition(row, col), type));
-                        }
-                    }
+                    // Handle promotion during capture using the handlePawnPromotion method
+                    handlePawnPromotion(moves, row, col);
                 } else {
                     // Regular capture without promotion
                     moves.add(new ChessMove(position, new ChessPosition(row, col), null));
@@ -164,6 +160,7 @@ class PawnMovement extends ChessPieceMovement {
             }
         }
     }
+
 
     private boolean isPathFree(int direction) {
         ChessPosition inFront = new ChessPosition(position.getRow() + direction, position.getColumn());

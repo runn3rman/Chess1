@@ -56,10 +56,8 @@ public class SqlAuthTokenDao implements AuthTokenDaoInterface {
             stmt.setString(1, authToken);
             int rowsAffected = stmt.executeUpdate();
             return rowsAffected > 0;
-        } catch (SQLException e) {
+        } catch (SQLException | DataAccessException e) {
             e.printStackTrace();
-        } catch (DataAccessException e) {
-            throw new RuntimeException(e);
         }
         return false;
     }

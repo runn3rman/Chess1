@@ -1,6 +1,10 @@
 package service;
 
-import dataaccess.*;
+import dataaccess.AuthTokenDaoInterface;
+import dataaccess.SqlAuthTokenDao;
+import dataaccess.SqlUserDao;
+import dataaccess.UserDaoInterface;
+import dataaccess.DataAccessException;
 import model.AuthData;
 import model.UserData;
 import org.mindrot.jbcrypt.BCrypt;
@@ -8,9 +12,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.util.UUID;
 
 public class RegisterService {
-    private UserDaoInterface userDao = new SqlUserDao();
-    private AuthTokenDaoInterface authTokenDao = new SqlAuthTokenDao();
-
+    private final UserDaoInterface userDao = new SqlUserDao();
+    private final AuthTokenDaoInterface authTokenDao = new SqlAuthTokenDao();
 
     public AuthData register(UserData newUser) throws DataAccessException {
         // Check if user already exists
@@ -44,4 +47,3 @@ public class RegisterService {
         return UUID.randomUUID().toString();
     }
 }
-

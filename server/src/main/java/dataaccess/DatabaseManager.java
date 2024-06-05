@@ -75,10 +75,20 @@ public class DatabaseManager {
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
 
+            // Drop existing tables
+            //String dropAuthTokensTable = "DROP TABLE IF EXISTS auth_tokens";
+            //String dropGamesTable = "DROP TABLE IF EXISTS games";
+            //String dropUsersTable = "DROP TABLE IF EXISTS users";
+
+            //stmt.execute(dropAuthTokensTable);
+            //stmt.execute(dropGamesTable);
+            //stmt.execute(dropUsersTable);
+
             String createUsersTable = "CREATE TABLE IF NOT EXISTS users (" +
                     "id INT AUTO_INCREMENT PRIMARY KEY," +
                     "username VARCHAR(255) NOT NULL UNIQUE," +
-                    "password VARCHAR(255) NOT NULL" +
+                    "password VARCHAR(255) NOT NULL," +
+                    "email VARCHAR(255) NOT NULL" +
                     ")";
 
             String createGamesTable = "CREATE TABLE IF NOT EXISTS games (" +

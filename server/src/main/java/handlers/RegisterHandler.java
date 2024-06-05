@@ -11,10 +11,8 @@ import spark.Request;
 import spark.Response;
 
 public class RegisterHandler {
-
-
-    private RegisterService registerService = new RegisterService();
-    private Gson gson = new Gson();
+    private final RegisterService registerService = new RegisterService();
+    private final Gson gson = new Gson();
 
     public Object handleRequest(Request req, Response res) {
         RegisterRequest registerRequest = gson.fromJson(req.body(), RegisterRequest.class);
@@ -39,7 +37,6 @@ public class RegisterHandler {
                 res.status(403); // Forbidden status
                 return gson.toJson(new ErrorResponse("Error: already taken"));
             } else {
-                // This else block might not be necessary if all DataAccessExceptions are handled above
                 res.status(400); // Bad Request status
                 return gson.toJson(new ErrorResponse("Error: bad request"));
             }

@@ -9,7 +9,7 @@ public class MemoryUserDao implements UserDaoInterface {
     private static final HashMap<String, UserData> USERS = new HashMap<>();
 
     @Override
-    public void addUser(String username, String password) throws SQLException, DataAccessException {
+    public void addUser(String username, String password, String email) throws SQLException, DataAccessException {
 
     }
 

@@ -40,6 +40,7 @@ public class Server {
         GameService gameService = new GameService(gameDao);
         JoinGameService joinGameService = new JoinGameService(gameDao, authTokenDao);
 
+
         // Handlers with services
         ClearHandler clearHandler = new ClearHandler(clearService);
         LoginHandler loginHandler = new LoginHandler(loginService);
@@ -47,10 +48,11 @@ public class Server {
         CreateGameHandler createGameHandler = new CreateGameHandler(createGameService);
         ListGamesHandler listGamesHandler = new ListGamesHandler(gameService, authTokenDao);
         JoinGameHandler joinGameHandler = new JoinGameHandler(joinGameService, authTokenDao, gameDao);
+        RegisterHandler registerHandler = new RegisterHandler();
 
         // Register your endpoints and handle exceptions here
         Spark.delete("/db", clearHandler::handleRequest);
-        Spark.post("/user", (req, res) -> (new RegisterHandler()).handleRequest(req, res));
+        Spark.post("/user", registerHandler::handleRequest);
         Spark.post("/session", loginHandler::handleRequest);
         Spark.delete("/session", logoutHandler::handleRequest);
         Spark.post("/game", createGameHandler::handleRequest);

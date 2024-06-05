@@ -10,56 +10,96 @@ import java.sql.SQLException;
 
 public class SqlUserDao implements UserDaoInterface {
     @Override
-    public void addUser(String username, String password) throws SQLException, DataAccessException {
-        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+    public void addUser(String username, String password, String email) {
+        //String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        String sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)")) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
-            stmt.setString(2, hashedPassword);
+            stmt.setString(2, password);
+            stmt.setString(3, email); // Placeholder email
             stmt.executeUpdate();
+        } catch (SQLException | DataAccessException e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public String getPassword(String username) throws SQLException, DataAccessException {
+    public String getPassword(String username) {
+        String sql = "SELECT password FROM users WHERE username = ?";
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("SELECT password FROM users WHERE username = ?")) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return rs.getString("password");
                 }
             }
+        } catch (SQLException | DataAccessException e) {
+            e.printStackTrace();
         }
         return null;
     }
 
     @Override
-    public boolean userExists(String username) throws SQLException, DataAccessException {
+    public boolean userExists(String username) {
+        String sql = "SELECT COUNT(*) FROM users WHERE username = ?";
         try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("SELECT COUNT(*) FROM users WHERE username = ?")) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return rs.getInt(1) > 0;
                 }
             }
+        } catch (SQLException | DataAccessException e) {
+            e.printStackTrace();
         }
         return false;
     }
 
     @Override
     public void clearUsers() {
-
+        String sql = "DELETE FROM users";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.executeUpdate();
+        } catch (SQLException | DataAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public UserData getUser(String username) {
+    public UserData getUser(String username) throws DataAccessException {
+        String sql = "SELECT username, password, email FROM users WHERE username = ?";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, username);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String password = rs.getString("password");
+                    String email = rs.getString("email");
+                    return new UserData(username, password, email);
+                }
+            }
+        } catch (SQLException e) {
+            throw new DataAccessException("Error encountered while finding user");
+        }
         return null;
     }
 
     @Override
-    public void insertUser(UserData user) throws DataAccessException {
-
+    public void insertUser(UserData user) {
+        //String hashedPassword = BCrypt.hashpw(user.password(), BCrypt.gensalt());
+        String sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
+        try (Connection conn = DatabaseManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, user.username());
+            stmt.setString(2, user.password());
+            stmt.setString(3, user.email());
+            stmt.executeUpdate();
+        } catch (SQLException | DataAccessException e) {
+            e.printStackTrace();
+        }
     }
 }

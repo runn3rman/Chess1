@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;Removed unnecessary function definitions&quot;">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/DataAccessTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/server/dataaccess/DataAccessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/dataaccess/DataAccessException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccessException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SqlUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SqlUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/DatabaseTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;removed unused code&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +144,7 @@
       <recent name="unit" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServiceTests">
+  <component name="RunManager" selected="JUnit.DatabaseTests">
     <configuration name="DataAccessTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -230,9 +223,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.ServiceTests" />
         <item itemvalue="JUnit.DataAccessTests" />
-        <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.DataAccessTests.insertUserFailureDuplicateUsername" />
       </list>
@@ -262,23 +255,7 @@
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
       <workItem from="1716429675785" duration="15427000" />
-      <workItem from="1717459031973" duration="22302000" />
-    </task>
-    <task id="LOCAL-00010" summary="&quot;bishop movement&quot;">
-      <option name="closed" value="true" />
-      <created>1705636558300</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1705636558300</updated>
-    </task>
-    <task id="LOCAL-00011" summary="&quot;Queen movement&quot;">
-      <option name="closed" value="true" />
-      <created>1705636635001</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1705636635001</updated>
+      <workItem from="1717459031973" duration="24087000" />
     </task>
     <task id="LOCAL-00012" summary="&quot;King movement&quot;">
       <option name="closed" value="true" />
@@ -656,7 +633,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717558133650</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="&quot;Wrote dataaccesstests&quot;">
+      <option name="closed" value="true" />
+      <created>1717561345642</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1717561345642</updated>
+    </task>
+    <task id="LOCAL-00060" summary="&quot;removed unused code&quot;">
+      <option name="closed" value="true" />
+      <created>1717561642993</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1717561642993</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,8 +667,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;testing&quot;" />
-    <MESSAGE value="&quot;big testing comment&quot;" />
     <MESSAGE value="&quot;Auth logic&quot;" />
     <MESSAGE value="&quot;comments&quot;" />
     <MESSAGE value="&quot;cleanup&quot;" />
@@ -699,7 +690,9 @@
     <MESSAGE value="&quot;switched everything to SQl. passing all StandardAPI test besides 2,5, and 13&quot;" />
     <MESSAGE value="&quot;passing DatabaseTests. fixed double hashing issue&quot;" />
     <MESSAGE value="&quot;Removed unnecessary function definitions&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Removed unnecessary function definitions&quot;" />
+    <MESSAGE value="&quot;Wrote dataaccesstests&quot;" />
+    <MESSAGE value="&quot;removed unused code&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;removed unused code&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

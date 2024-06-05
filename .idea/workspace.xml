@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;code quality. removed unused code, renamed constants&quot;">
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;renamed service tests file&quot;">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SqlAuthTokenDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SqlGameDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SqlUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/resources/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/passoff/server/DatabaseTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryAuthTokenDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryAuthTokenDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/dataaccess/MemoryUserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared/chess/KingMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/chess/KingMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared/chess/KnightMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/chess/KnightMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared/model/GameCreationRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/model/GameCreationRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/shared/model/LoginRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/shared/model/LoginRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/dataaccess/UserDaoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/dataaccess/UserDaoInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/service/RegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/service/RegisterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDaoInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/unit/ServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/unit/ServiceTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +71,7 @@
     "JUnit.ChessPositionTests.equalsTest.executor": "Debug",
     "JUnit.ChessPositionTests.executor": "Run",
     "JUnit.ClearServiceTests.executor": "Run",
+    "JUnit.DatabaseTests.executor": "Run",
     "JUnit.KingMoveTests.executor": "Debug",
     "JUnit.KnightMoveTests.executor": "Debug",
     "JUnit.KnightMoveTests.knightMiddleOfBoardWhite.executor": "Debug",
@@ -100,9 +111,10 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/grantgardner/CS240/chess4/shared/src/main/java",
+    "last_opened_file_path": "/Users/grantgardner/CS240/chess4/server/src/test/java/passoff/server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -127,11 +139,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/shared/src/main/java" />
-      <recent name="$PROJECT_DIR$/server/lib" />
-      <recent name="$PROJECT_DIR$/server/src/main/java" />
+      <recent name="$PROJECT_DIR$/server/src/test/java/passoff/server" />
       <recent name="$PROJECT_DIR$/server/src/main/java/dataaccess" />
       <recent name="$PROJECT_DIR$/server/src/main/resources" />
+      <recent name="$PROJECT_DIR$/shared/src/main/java" />
+      <recent name="$PROJECT_DIR$/server/lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/test/java/passoff/server" />
@@ -145,6 +157,34 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.StandardAPITests">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.DatabaseTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -160,22 +200,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServiceTests.loginSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unit" />
-      <option name="MAIN_CLASS_NAME" value="service.ServiceTests" />
-      <option name="METHOD_NAME" value="loginSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -187,22 +211,6 @@
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.badColorJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="badColorJoin" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -224,10 +232,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.StandardAPITests" />
+        <item itemvalue="JUnit.DatabaseTests" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.ServiceTests" />
         <item itemvalue="JUnit.passoff.chess in shared" />
-        <item itemvalue="JUnit.ServiceTests.loginSuccess" />
-        <item itemvalue="JUnit.StandardAPITests.badColorJoin" />
       </list>
     </recent_temporary>
   </component>
@@ -254,23 +262,8 @@
       <workItem from="1716403422527" duration="472000" />
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
-      <workItem from="1716429675785" duration="12769000" />
-    </task>
-    <task id="LOCAL-00004" summary="&quot;Chess Position tests passed&quot;">
-      <option name="closed" value="true" />
-      <created>1705606255707</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1705606255707</updated>
-    </task>
-    <task id="LOCAL-00005" summary="&quot;All non-movement tests passed(just need to reconfigure board tests)&quot;">
-      <option name="closed" value="true" />
-      <created>1705613235706</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1705613235706</updated>
+      <workItem from="1716429675785" duration="15427000" />
+      <workItem from="1717459031973" duration="8212000" />
     </task>
     <task id="LOCAL-00006" summary="&quot;All non-movement tests passed&quot;">
       <option name="closed" value="true" />
@@ -648,7 +641,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716492523141</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="&quot;added more service tests&quot;">
+      <option name="closed" value="true" />
+      <created>1716493673491</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1716493673492</updated>
+    </task>
+    <task id="LOCAL-00054" summary="&quot;renamed service tests file&quot;">
+      <option name="closed" value="true" />
+      <created>1716493847146</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1716493847146</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,8 +675,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;helper function tags&quot;" />
-    <MESSAGE value="&quot;added missed helper function comments&quot;" />
     <MESSAGE value="&quot;added a million files&quot;" />
     <MESSAGE value="&quot;added clear, register, login, logout, and create game&quot;" />
     <MESSAGE value="&quot;passing all tests&quot;" />
@@ -691,7 +698,9 @@
     <MESSAGE value="&quot;renamed authTokens to AuthTokens&quot;" />
     <MESSAGE value="&quot;handlePawnPromotion is now called instead of duplicated&quot;" />
     <MESSAGE value="&quot;code quality. removed unused code, renamed constants&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;code quality. removed unused code, renamed constants&quot;" />
+    <MESSAGE value="&quot;added more service tests&quot;" />
+    <MESSAGE value="&quot;renamed service tests file&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;renamed service tests file&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

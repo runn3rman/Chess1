@@ -5,6 +5,8 @@ import handlers.*;
 import service.*;
 import spark.*;
 
+import java.sql.SQLException;
+
 public class Server {
     private ClearService clearService;
 
@@ -14,22 +16,29 @@ public class Server {
 
     public int run(int desiredPort) {
 
+        // Try-catch block to set up tables
+        try {
+            DatabaseManager.createDatabase();
+            DatabaseManager.initializeDatabase();
+        } catch (DataAccessException | SQLException e) {
+            e.printStackTrace();
+            System.exit(1); // Exit if we can't set up the database
+        }
         Spark.port(desiredPort);
-
         Spark.staticFiles.location("web");
 
-        // Singleton instances of DAOs
-        UserDaoInterface userDao = new MemoryUserDao();
-        GameDaoInterface gameDao = new MemoryGameDao();
-        AuthTokenDaoInterface authTokenDao = new MemoryAuthTokenDao(); // Create an instance of AuthTokenDao
+        // SQL DAOs
+        UserDaoInterface userDao = new SqlUserDao();
+        GameDaoInterface gameDao = new SqlGameDao();
+        AuthTokenDaoInterface authTokenDao = new SqlAuthTokenDao();
 
-        // Services with singleton DAOs
+        // Services with DAOs
         clearService = new ClearService(userDao, gameDao, authTokenDao);
-        LoginService loginService = new LoginService(userDao, authTokenDao); // Updated to use singleton DAOs
-        LogoutService logoutService = new LogoutService(authTokenDao); // Uses singleton AuthTokenDao
-        CreateGameService createGameService = new CreateGameService(gameDao, authTokenDao); // Uses singleton DAOs
-        GameService gameService = new GameService(gameDao); // Uses singleton GameDao
-        JoinGameService joinGameService = new JoinGameService(gameDao, authTokenDao); // Now correctly instantiated
+        LoginService loginService = new LoginService(userDao, authTokenDao);
+        LogoutService logoutService = new LogoutService(authTokenDao);
+        CreateGameService createGameService = new CreateGameService(gameDao, authTokenDao);
+        GameService gameService = new GameService(gameDao);
+        JoinGameService joinGameService = new JoinGameService(gameDao, authTokenDao);
 
         // Handlers with services
         ClearHandler clearHandler = new ClearHandler(clearService);
@@ -37,9 +46,7 @@ public class Server {
         LogoutHandler logoutHandler = new LogoutHandler(logoutService, authTokenDao);
         CreateGameHandler createGameHandler = new CreateGameHandler(createGameService);
         ListGamesHandler listGamesHandler = new ListGamesHandler(gameService, authTokenDao);
-        JoinGameHandler joinGameHandler = new JoinGameHandler(joinGameService, authTokenDao, gameDao); // Pass an instance of AuthTokenDao
-
-
+        JoinGameHandler joinGameHandler = new JoinGameHandler(joinGameService, authTokenDao, gameDao);
 
         // Register your endpoints and handle exceptions here
         Spark.delete("/db", clearHandler::handleRequest);

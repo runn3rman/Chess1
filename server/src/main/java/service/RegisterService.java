@@ -8,8 +8,9 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.util.UUID;
 
 public class RegisterService {
-    private UserDaoInterface userDao = new MemoryUserDao();
-    private AuthTokenDaoInterface authTokenDao = new MemoryAuthTokenDao();
+    private UserDaoInterface userDao = new SqlUserDao();
+    private AuthTokenDaoInterface authTokenDao = new SqlAuthTokenDao();
+
 
     public AuthData register(UserData newUser) throws DataAccessException {
         // Check if user already exists

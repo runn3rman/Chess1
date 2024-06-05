@@ -9,54 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SqlUserDao implements UserDaoInterface {
-    @Override
-    public void addUser(String username, String password, String email) {
-        //String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
-        String sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
-        try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            stmt.setString(3, email); // Placeholder email
-            stmt.executeUpdate();
-        } catch (SQLException | DataAccessException e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Override
-    public String getPassword(String username) {
-        String sql = "SELECT password FROM users WHERE username = ?";
-        try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, username);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getString("password");
-                }
-            }
-        } catch (SQLException | DataAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public boolean userExists(String username) {
-        String sql = "SELECT COUNT(*) FROM users WHERE username = ?";
-        try (Connection conn = DatabaseManager.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, username);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt(1) > 0;
-                }
-            }
-        } catch (SQLException | DataAccessException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
     @Override
     public void clearUsers() {

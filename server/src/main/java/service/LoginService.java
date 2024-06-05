@@ -21,8 +21,6 @@ public class LoginService {
     public AuthData login(String username, String password) throws DataAccessException {
         UserData user = userDao.getUser(username);
         if (user != null) {
-            System.out.println("Stored hashed password: " + user.password());
-            System.out.println("Checking against: " + password);
             if (BCrypt.checkpw(password, user.password())) {
                 String authToken = UUID.randomUUID().toString();
                 AuthData authData = new AuthData(authToken, username);

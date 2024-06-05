@@ -24,7 +24,6 @@ public class RegisterService {
 
         // Hash the user's password
         String hashedPassword = BCrypt.hashpw(newUser.password(), BCrypt.gensalt());
-        System.out.println("Hashed Password: " + hashedPassword); // Log the hashed password for verification
 
         // Create a new UserData object with the hashed password
         UserData userWithHashedPassword = new UserData(newUser.username(), hashedPassword, newUser.email());

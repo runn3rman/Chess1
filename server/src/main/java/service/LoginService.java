@@ -26,11 +26,7 @@ public class LoginService {
                 AuthData authData = new AuthData(authToken, username);
                 authTokenDao.insertAuthToken(authData);
                 return authData;
-            } else {
-                System.out.println("Password does not match");
             }
-        } else {
-            System.out.println("User not found");
         }
         throw new DataAccessException("Invalid username or password");
     }

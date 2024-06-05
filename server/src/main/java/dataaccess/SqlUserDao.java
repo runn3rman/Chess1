@@ -43,7 +43,6 @@ public class SqlUserDao implements UserDaoInterface {
 
     @Override
     public void insertUser(UserData user) {
-        //String hashedPassword = BCrypt.hashpw(user.password(), BCrypt.gensalt());
         String sql = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
         try (Connection conn = DatabaseManager.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -51,8 +50,14 @@ public class SqlUserDao implements UserDaoInterface {
             stmt.setString(2, user.password());
             stmt.setString(3, user.email());
             stmt.executeUpdate();
-        } catch (SQLException | DataAccessException e) {
+        } catch (SQLException e) {
+            if (e.getSQLState().equals("23000")) { // SQLState 23000 is for duplicate entry
+                throw new RuntimeException("Duplicate username: " + user.username(), e);
+            }
             e.printStackTrace();
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
         }
     }
+
 }

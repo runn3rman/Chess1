@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;passing DatabaseTests. fixed double hashing issue&quot;">
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/DatabaseTests.java" afterDir="false" />
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;Removed unnecessary function definitions&quot;">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/DataAccessTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/server/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/service/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/server/service/RegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/service/RegisterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/dataaccess/DataAccessException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/dataaccess/DataAccessException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccessException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SqlUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SqlUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDaoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDaoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/DatabaseTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +61,8 @@
     "JUnit.ChessPositionTests.equalsTest.executor": "Debug",
     "JUnit.ChessPositionTests.executor": "Run",
     "JUnit.ClearServiceTests.executor": "Run",
+    "JUnit.DataAccessTests.executor": "Run",
+    "JUnit.DataAccessTests.insertUserFailureDuplicateUsername.executor": "Run",
     "JUnit.DatabaseTests.executor": "Run",
     "JUnit.KingMoveTests.executor": "Debug",
     "JUnit.KnightMoveTests.executor": "Debug",
@@ -151,7 +151,38 @@
       <recent name="unit" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DatabaseTests">
+  <component name="RunManager" selected="JUnit.ServiceTests">
+    <configuration name="DataAccessTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.DataAccessTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DataAccessTests.insertUserFailureDuplicateUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.DataAccessTests" />
+      <option name="METHOD_NAME" value="insertUserFailureDuplicateUsername" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -162,6 +193,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.DatabaseTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.ServiceTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -182,61 +228,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests.goodJoin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="goodJoin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.successLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="successLogin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.successLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="successLogout" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServiceTests" />
+        <item itemvalue="JUnit.DataAccessTests" />
         <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.StandardAPITests.successLogin" />
-        <item itemvalue="JUnit.StandardAPITests.goodJoin" />
-        <item itemvalue="JUnit.StandardAPITests.successLogout" />
+        <item itemvalue="JUnit.DataAccessTests.insertUserFailureDuplicateUsername" />
       </list>
     </recent_temporary>
   </component>
@@ -264,23 +262,7 @@
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
       <workItem from="1716429675785" duration="15427000" />
-      <workItem from="1717459031973" duration="19272000" />
-    </task>
-    <task id="LOCAL-00008" summary="&quot;Pawn movement&quot;">
-      <option name="closed" value="true" />
-      <created>1705636409155</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1705636409155</updated>
-    </task>
-    <task id="LOCAL-00009" summary="&quot;rook and knight movement&quot;">
-      <option name="closed" value="true" />
-      <created>1705636521119</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1705636521119</updated>
+      <workItem from="1717459031973" duration="22302000" />
     </task>
     <task id="LOCAL-00010" summary="&quot;bishop movement&quot;">
       <option name="closed" value="true" />
@@ -658,7 +640,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717557686144</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="&quot;Removed unnecessary function definitions&quot;">
+      <option name="closed" value="true" />
+      <created>1717558123300</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1717558123300</updated>
+    </task>
+    <task id="LOCAL-00058" summary="&quot;Removed unnecessary function definitions&quot;">
+      <option name="closed" value="true" />
+      <created>1717558133650</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1717558133650</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -676,7 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;passing all tests&quot;" />
     <MESSAGE value="&quot;testing&quot;" />
     <MESSAGE value="&quot;big testing comment&quot;" />
     <MESSAGE value="&quot;Auth logic&quot;" />
@@ -701,7 +698,8 @@
     <MESSAGE value="&quot;renamed service tests file&quot;" />
     <MESSAGE value="&quot;switched everything to SQl. passing all StandardAPI test besides 2,5, and 13&quot;" />
     <MESSAGE value="&quot;passing DatabaseTests. fixed double hashing issue&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;passing DatabaseTests. fixed double hashing issue&quot;" />
+    <MESSAGE value="&quot;Removed unnecessary function definitions&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Removed unnecessary function definitions&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

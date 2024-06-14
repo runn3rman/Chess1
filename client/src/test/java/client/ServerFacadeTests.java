@@ -165,23 +165,23 @@ public class ServerFacadeTests {
         // Clear the database
         facade.clearDatabase();
 
-        // Try to list games with a valid token
-        List<GameData> games = facade.listGames(authData.authToken());
+        // Register a new user to get a new valid token
+        var newAuthData = facade.register("player2", "password", "p2@email.com");
+
+        // Verify the database is empty using the new auth token
+        List<GameData> games = facade.listGames(newAuthData.authToken());
         assertTrue(games.isEmpty(), "Database should be empty after clear");
     }
+
 
     @Test
     @Order(14)
     void clearDatabaseFailure() throws IOException {
         populateDatabaseWithTestData();
-
-        // Simulate an invalid operation or an unauthorized action for clearing the database
-        // Attempt to retrieve data that should no longer exist
         IOException exception = assertThrows(IOException.class, () -> {
             facade.listGames("invalidToken");
         });
 
-        // Assert that the invalid operation did not proceed and returned an appropriate error
         assertTrue(exception.getMessage().contains("unauthorized") || exception.getMessage().contains("Invalid or expired authToken"));
     }
 

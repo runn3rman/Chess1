@@ -9,7 +9,7 @@ import ui.ServerFacade;
 import ui.ChessBoard;
 
 public class Main {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
     private static ServerFacade serverFacade;
     private static AuthData authData;
     private static Map<Integer, Integer> gameNumberToIdMap = new HashMap<>();
@@ -30,7 +30,7 @@ public class Main {
 
     private static void handlePreLoginCommands() {
         System.out.println("Available commands: help, quit, login, register");
-        String input = scanner.nextLine().trim().toLowerCase();
+        String input = SCANNER.nextLine().trim().toLowerCase();
         switch (input) {
             case "help":
                 System.out.println("Commands: help, quit, login, register");
@@ -51,7 +51,7 @@ public class Main {
 
     private static void handlePostLoginCommands() {
         System.out.println("Available commands: help, logout, create game, list games, play game, observe game");
-        String input = scanner.nextLine().trim().toLowerCase();
+        String input = SCANNER.nextLine().trim().toLowerCase();
         switch (input) {
             case "help":
                 System.out.println("Commands: help, logout, create game, list games, play game, observe game");
@@ -78,9 +78,9 @@ public class Main {
 
     private static void handleLogin() {
         System.out.println("Enter username: ");
-        String username = scanner.nextLine().trim();
+        String username = SCANNER.nextLine().trim();
         System.out.println("Enter password: ");
-        String password = scanner.nextLine().trim();
+        String password = SCANNER.nextLine().trim();
         try {
             authData = serverFacade.login(username, password);
             System.out.println("Login successful");
@@ -91,11 +91,11 @@ public class Main {
 
     private static void handleRegister() {
         System.out.println("Enter username: ");
-        String username = scanner.nextLine().trim();
+        String username = SCANNER.nextLine().trim();
         System.out.println("Enter password: ");
-        String password = scanner.nextLine().trim();
+        String password = SCANNER.nextLine().trim();
         System.out.println("Enter email: ");
-        String email = scanner.nextLine().trim();
+        String email = SCANNER.nextLine().trim();
         try {
             authData = serverFacade.register(username, password, email);
             System.out.println("Registration successful");
@@ -116,7 +116,7 @@ public class Main {
 
     private static void handleCreateGame() {
         System.out.println("Enter game name: ");
-        String gameName = scanner.nextLine().trim();
+        String gameName = SCANNER.nextLine().trim();
         try {
             serverFacade.createGame(authData.authToken(), gameName);
             System.out.println("Game created successfully");
@@ -141,9 +141,9 @@ public class Main {
 
     private static void handlePlayGame() {
         System.out.println("Enter game number: ");
-        int gameNumber = Integer.parseInt(scanner.nextLine().trim());
+        int gameNumber = Integer.parseInt(SCANNER.nextLine().trim());
         System.out.println("Enter color (white/black): ");
-        String color = scanner.nextLine().trim().toUpperCase();
+        String color = SCANNER.nextLine().trim().toUpperCase();
         try {
             Integer gameId = gameNumberToIdMap.get(gameNumber);
             if (gameId == null) {
@@ -160,7 +160,7 @@ public class Main {
 
     private static void handleObserveGame() {
         System.out.println("Enter game number: ");
-        int gameNumber = Integer.parseInt(scanner.nextLine().trim());
+        int gameNumber = Integer.parseInt(SCANNER.nextLine().trim());
         try {
             Integer gameId = gameNumberToIdMap.get(gameNumber);
             if (gameId == null) {

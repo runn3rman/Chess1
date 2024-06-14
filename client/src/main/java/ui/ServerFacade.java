@@ -130,10 +130,5 @@ public class ServerFacade {
             }
         }
     }
-
-    private List<GameData> parseGameListResponse(String response) {
-        Type mapType = new TypeToken<Map<String, List<GameData>>>() {}.getType();
-        Map<String, List<GameData>> responseMap = gson.fromJson(response, mapType);
-        return responseMap.get("games");
-    }
+    
 }

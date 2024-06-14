@@ -20,7 +20,6 @@ public class ServerFacade {
 
     public ServerFacade(String url) {
         this.serverUrl = url;
-        // Configure Gson to serialize null values
         this.gson = new GsonBuilder().serializeNulls().create();
     }
 

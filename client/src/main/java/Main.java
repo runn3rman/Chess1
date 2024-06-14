@@ -169,7 +169,6 @@ public class Main {
             }
             serverFacade.joinGame(authData.authToken(), new JoinGameRequest(null, gameId));
             System.out.println("Joined game as observer successfully");
-            // ChessBoard.drawInitialBoard(null);
         } catch (Exception e) {
             System.out.println("Failed to join game as observer: " + e.getMessage());
         }

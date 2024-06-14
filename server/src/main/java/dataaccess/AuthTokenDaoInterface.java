@@ -9,5 +9,6 @@ public interface AuthTokenDaoInterface {
     boolean deleteAuthToken(String authToken);
     String extractUsername(String authToken);
     boolean isValidAuthToken(String authToken);
+
     // Define additional necessary methods
 }

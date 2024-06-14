@@ -15,9 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ServiceTests {
 
-    private static MemoryUserDao userDao;
-    private static MemoryGameDao gameDao;
-    private static MemoryAuthTokenDao authTokenDao;
+    private static SqlUserDao userDao;
+    private static SqlGameDao gameDao;
+    private static SqlAuthTokenDao authTokenDao;
     private static CreateGameService createGameService;
     private static JoinGameService joinGameService;
     private static GameService gameService;
@@ -32,9 +32,9 @@ public class ServiceTests {
 
     @BeforeAll
     static void setUp() {
-        userDao = new MemoryUserDao();
-        gameDao = new MemoryGameDao();
-        authTokenDao = new MemoryAuthTokenDao();
+        userDao = new SqlUserDao();
+        gameDao = new SqlGameDao();
+        authTokenDao = new SqlAuthTokenDao();
         createGameService = new CreateGameService(gameDao, authTokenDao);
         gameService = new GameService(gameDao);
         joinGameService = new JoinGameService(gameDao, authTokenDao);
@@ -182,6 +182,9 @@ public class ServiceTests {
     @Order(14)
     @DisplayName("Register Success")
     void registerSuccess() throws DataAccessException {
+        // Ensure the user database is clear before the test
+        userDao.clearUsers();
+
         UserData newUser = new UserData("newUser", "password123", "newuser@example.com");
 
         // Attempt to register the new user
@@ -195,19 +198,21 @@ public class ServiceTests {
         UserData registeredUser = userDao.getUser(newUser.username());
         assertNotNull(registeredUser, "User should exist in UserDao after successful registration");
         assertEquals(newUser.username(), registeredUser.username(), "Username should match the newly registered user");
+
+        // Verify the password is hashed and not stored in plain text
+        assertTrue(BCrypt.checkpw("password123", registeredUser.password()), "Password should be hashed correctly");
     }
+
+
 
     @Test
     @Order(15)
     @DisplayName("Register Failure - Username Already Taken")
     void registerFailureUsernameAlreadyTaken() {
         UserData existingUser = new UserData("existingUser", "password123", "existing@example.com");
+
         // Pre-insert a user to simulate username conflict
-        try {
-            userDao.insertUser(existingUser);
-        } catch (DataAccessException e) {
-            fail("Setup failed due to exception: " + e.getMessage());
-        }
+        userDao.insertUser(new UserData(existingUser.username(), BCrypt.hashpw(existingUser.password(), BCrypt.gensalt()), existingUser.email()));
 
         UserData newUserSameUsername = new UserData("existingUser", "newPassword", "new@example.com");
 
@@ -218,10 +223,11 @@ public class ServiceTests {
         assertTrue(exception.getMessage().contains("Username is already taken"), "Exception message should indicate username conflict");
     }
 
+
     @Test
     @Order(16)
     @DisplayName("Clear All Data Successfully")
-    void clearAllDataSuccess() {
+    void clearAllDataSuccess() throws DataAccessException {
         // Pre-populate each DAO with a sample entry to ensure there's data to clear
         String testUsername = "userToClear";
         int testGameId = gameDao.insertGame("gameToClear");
@@ -246,7 +252,7 @@ public class ServiceTests {
     @Test
     @Order(17)
     @DisplayName("Clear All Data - Empty Database")
-    void clearAllDataEmptyDatabase() {
+    void clearAllDataEmptyDatabase() throws DataAccessException {
         // Ensure the DAOs are empty
         userDao.clearUsers();
         gameDao.clearGames();

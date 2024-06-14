@@ -10,7 +10,7 @@ public class GameData {
     private int gameID;
     private String whiteUsername;
     private String blackUsername;
-    private String gameName;
+    public String gameName;
     private ChessGame game;
     private List<String> observers;
 

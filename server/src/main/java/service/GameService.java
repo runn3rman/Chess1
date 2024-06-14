@@ -13,6 +13,7 @@ public class GameService {
     }
 
     public List<GameData> listGames() {
+
         return gameDao.listGames();
     }
 }

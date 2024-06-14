@@ -46,4 +46,6 @@ public class MemoryAuthTokenDao implements AuthTokenDaoInterface {
     public boolean isValidAuthToken(String authToken) {
         return AUTH_TOKENS.containsKey(authToken);
     }
+
+
 }

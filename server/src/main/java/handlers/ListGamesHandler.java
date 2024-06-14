@@ -23,16 +23,23 @@ public class ListGamesHandler {
     public Object handleRequest(Request req, Response res) {
         try {
             String authToken = req.headers("authorization");
+            System.out.println("Authorization header: " + authToken);
             if (authToken == null || authTokenDao.getAuthData(authToken) == null) {
                 res.status(401);
+                System.out.println("Unauthorized request");
                 return gson.toJson(Map.of("message", "Error: unauthorized"));
             }
 
+            // Fetch games and create the JSON response
             List<GameData> games = gameService.listGames();
+            String jsonResponse = gson.toJson(Map.of("games", games));
+            System.out.println("JSON Response being sent: " + jsonResponse); // Log the JSON response being sent
             res.status(200);
-            return gson.toJson(Map.of("games", games));
+            return jsonResponse;
         } catch (Exception e) {
+            e.printStackTrace();
             res.status(500);
+            System.out.println("Exception occurred: " + e.getMessage());
             return gson.toJson(Map.of("message", "Error: description"));
         }
     }

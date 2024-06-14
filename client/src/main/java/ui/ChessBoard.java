@@ -16,11 +16,11 @@ public class ChessBoard {
     private static String currentChar = EMPTY;
     private static String currentColor = null;
 
-    private static chess.ChessBoard board; //
+    private static chess.ChessBoard board;
 
     public static void drawInitialBoard(String perspective) {
         board = new chess.ChessBoard(); // Initialize the chessboard
-        board.resetBoard(); //
+        board.resetBoard();
 
         PrintStream out = new PrintStream(System.out, true, StandardCharsets.UTF_8);
         boolean isWhite = "WHITE".equalsIgnoreCase(perspective);
@@ -39,11 +39,8 @@ public class ChessBoard {
         int step = whitePerspective ? 1 : -1;
 
         for (int row = startRow; whitePerspective ? row <= endRow : row >= endRow; row += step) {
-            // Determine the color of the background for the row header
-            boolean isRowHeaderWhite = (row % 2 != 0);
-
-            // Print the row header with the opposite color of the first square
-            out.print((isRowHeaderWhite ? SET_BG_COLOR_WHITE : SET_BG_COLOR_BLACK) + SET_TEXT_COLOR_GREEN + rowHeaders[row - 1] + RESET_TEXT_COLOR + " ");
+            // Print the row header with a grey background
+            out.print(SET_BG_COLOR_LIGHT_GREY + SET_TEXT_COLOR_BLACK + " " + rowHeaders[row - 1] + " " + RESET_TEXT_COLOR + RESET_BG_COLOR + " ");
             for (int col = 1; col <= BOARD_SIZE; col++) {
                 setCurrentCharAndColor(row, col);
                 if ((row + col) % 2 == 0) {
@@ -52,27 +49,22 @@ public class ChessBoard {
                     out.print(SET_BG_COLOR_BLACK + currentColor + currentChar + RESET_TEXT_COLOR);
                 }
             }
-            // Print the row header again at the end of the row with the same color as the start
-            out.print(" " + (isRowHeaderWhite ? SET_BG_COLOR_WHITE : SET_BG_COLOR_BLACK) + SET_TEXT_COLOR_GREEN + rowHeaders[row - 1] + RESET_TEXT_COLOR);
+            // Print the row header again at the end of the row with a grey background
+            out.print(" " + SET_BG_COLOR_LIGHT_GREY + SET_TEXT_COLOR_BLACK + " " + rowHeaders[row - 1] + " " + RESET_TEXT_COLOR + RESET_BG_COLOR);
             out.println();
         }
         drawHeaders(out);
-        out.print(SET_BG_COLOR_BLACK); // Ensure to reset the background to black after finishing the board
+        out.print(RESET_BG_COLOR); // Ensure to reset the background after finishing the board
     }
 
     private static void drawHeaders(PrintStream out) {
-        setBlack(out);
         String[] headers = {" a ", " b ", " c ", " d ", " e ", " f ", " g ", " h "};
-        int totalWidth = BOARD_SIZE * 3 + 2; // Each square is 3 characters wide, plus padding
-        int headerWidth = headers.length * 3;
-        int padding = (totalWidth - headerWidth) / 2;
-
-        // Print padding to center align headers
-        out.print(SET_BG_COLOR_BLACK + " ".repeat(padding));
+        out.print(SET_BG_COLOR_LIGHT_GREY + "   " + RESET_BG_COLOR); // Left corner
         for (String header : headers) {
-            out.print(SET_BG_COLOR_BLACK + SET_TEXT_COLOR_GREEN + header + RESET_TEXT_COLOR);
+            out.print(SET_BG_COLOR_LIGHT_GREY + SET_TEXT_COLOR_BLACK + header + RESET_TEXT_COLOR + RESET_BG_COLOR);
         }
-        out.println(RESET_TEXT_COLOR);
+        out.print(SET_BG_COLOR_LIGHT_GREY + "   " + RESET_BG_COLOR); // Right corner
+        out.println();
     }
 
     private static void setCurrentCharAndColor(int row, int col) {
@@ -83,34 +75,29 @@ public class ChessBoard {
         } else {
             switch (piece.getPieceType()) {
                 case KING:
-                    currentChar = " K ";
+                    currentChar = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? WHITE_KING : BLACK_KING;
                     break;
                 case QUEEN:
-                    currentChar = " Q ";
+                    currentChar = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? WHITE_QUEEN : BLACK_QUEEN;
                     break;
                 case PAWN:
-                    currentChar = " P ";
+                    currentChar = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? WHITE_PAWN : BLACK_PAWN;
                     break;
                 case ROOK:
-                    currentChar = " R ";
+                    currentChar = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? WHITE_ROOK : BLACK_ROOK;
                     break;
                 case KNIGHT:
-                    currentChar = "KN ";
+                    currentChar = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? WHITE_KNIGHT : BLACK_KNIGHT;
                     break;
                 case BISHOP:
-                    currentChar = " B ";
+                    currentChar = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? WHITE_BISHOP : BLACK_BISHOP;
                     break;
             }
-            currentColor = (piece.getTeamColor() == ChessGame.TeamColor.WHITE) ? SET_TEXT_COLOR_RED : SET_TEXT_COLOR_BLUE;
+
         }
     }
 
     private static ChessPiece getPiece(int row, int col) {
         return board.getPiece(new ChessPosition(row, col));
-    }
-
-    private static void setBlack(PrintStream out) {
-        out.print(SET_BG_COLOR_BLACK);
-        out.print(SET_TEXT_COLOR_BLACK);
     }
 }

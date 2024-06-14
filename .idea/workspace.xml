@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;All ServerFacadeTests pass&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;removed logging statements&quot;">
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ChessBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,31 +253,7 @@
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
       <workItem from="1716429675785" duration="15427000" />
-      <workItem from="1717459031973" duration="62563000" />
-    </task>
-    <task id="LOCAL-00016" summary="&quot;simplified limited chess movements. Switched ChessMove to record&quot;">
-      <option name="closed" value="true" />
-      <created>1706040805081</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1706040805081</updated>
-    </task>
-    <task id="LOCAL-00017" summary="&quot;Changed get method names, added basic makeMove and set/get&quot;">
-      <option name="closed" value="true" />
-      <created>1707243998514</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1707243998514</updated>
-    </task>
-    <task id="LOCAL-00018" summary="&quot;isInCheck passed&quot;">
-      <option name="closed" value="true" />
-      <created>1707245264422</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1707245264422</updated>
+      <workItem from="1717459031973" duration="63486000" />
     </task>
     <task id="LOCAL-00019" summary="&quot;isInCheck&quot;">
       <option name="closed" value="true" />
@@ -648,7 +623,31 @@
       <option name="project" value="LOCAL" />
       <updated>1718405983236</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="&quot;game number tracking&quot;">
+      <option name="closed" value="true" />
+      <created>1718406624801</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1718406624801</updated>
+    </task>
+    <task id="LOCAL-00066" summary="&quot;removed unused methods and renamed scanner&quot;">
+      <option name="closed" value="true" />
+      <created>1718406991415</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1718406991415</updated>
+    </task>
+    <task id="LOCAL-00067" summary="&quot;removed logging statements&quot;">
+      <option name="closed" value="true" />
+      <created>1718407100823</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1718407100823</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,9 +665,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;future notes&quot;" />
-    <MESSAGE value="&quot;Added all service tests&quot;" />
-    <MESSAGE value="&quot;notes, added files, added dependencies&quot;" />
     <MESSAGE value="&quot;Modified daos to be interfaces&quot;" />
     <MESSAGE value="&quot;Added Sql classes, password hashing, Server functionality&quot;" />
     <MESSAGE value="&quot;Made tests pass for phase 3&quot;" />
@@ -691,7 +687,10 @@
     <MESSAGE value="&quot;functionality added for pre and post login&quot;" />
     <MESSAGE value="&quot;Got a lot of self tests to run&quot;" />
     <MESSAGE value="&quot;All ServerFacadeTests pass&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;All ServerFacadeTests pass&quot;" />
+    <MESSAGE value="&quot;game number tracking&quot;" />
+    <MESSAGE value="&quot;removed unused methods and renamed scanner&quot;" />
+    <MESSAGE value="&quot;removed logging statements&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;removed logging statements&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,12 +1,18 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import model.AuthData;
+import model.GameData;
 import model.JoinGameRequest;
-import ui.*;
+import ui.ServerFacade;
+import ui.ChessBoard;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static ServerFacade serverFacade;
     private static AuthData authData;
+    private static Map<Integer, Integer> gameNumberToIdMap = new HashMap<>();
 
     public static void main(String[] args) {
         System.out.println("♕ Welcome to Chess Client!");
@@ -123,7 +129,9 @@ public class Main {
         try {
             var games = serverFacade.listGames(authData.authToken());
             System.out.println("List of games:");
+            gameNumberToIdMap.clear();
             for (int i = 0; i < games.size(); i++) {
+                gameNumberToIdMap.put(i + 1, games.get(i).getGameID());
                 System.out.println((i + 1) + ". " + games.get(i).getGameName());
             }
         } catch (Exception e) {
@@ -137,7 +145,12 @@ public class Main {
         System.out.println("Enter color (white/black): ");
         String color = scanner.nextLine().trim().toUpperCase();
         try {
-            serverFacade.joinGame(authData.authToken(), new JoinGameRequest(color, gameNumber));
+            Integer gameId = gameNumberToIdMap.get(gameNumber);
+            if (gameId == null) {
+                System.out.println("Invalid game number");
+                return;
+            }
+            serverFacade.joinGame(authData.authToken(), new JoinGameRequest(color, gameId));
             System.out.println("Joined game successfully");
             ChessBoard.drawInitialBoard(color);
         } catch (Exception e) {
@@ -149,15 +162,16 @@ public class Main {
         System.out.println("Enter game number: ");
         int gameNumber = Integer.parseInt(scanner.nextLine().trim());
         try {
-             // This ensures playerColor is null
-            serverFacade.joinGame(authData.authToken(), new JoinGameRequest(null, gameNumber));
+            Integer gameId = gameNumberToIdMap.get(gameNumber);
+            if (gameId == null) {
+                System.out.println("Invalid game number");
+                return;
+            }
+            serverFacade.joinGame(authData.authToken(), new JoinGameRequest(null, gameId));
             System.out.println("Joined game as observer successfully");
-            //ChessBoard.drawInitialBoard(null);
+            // ChessBoard.drawInitialBoard(null);
         } catch (Exception e) {
             System.out.println("Failed to join game as observer: " + e.getMessage());
         }
     }
-
-
 }
-

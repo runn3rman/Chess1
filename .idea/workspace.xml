@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;functionality added for pre and post login&quot;">
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;All ServerFacadeTests pass&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +152,7 @@
       <recent name="unit" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServerFacadeTests">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -223,11 +222,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.ServerFacadeTests.clearDatabaseSuccess" />
         <item itemvalue="JUnit.ServerFacadeTests.clearDatabaseFailure" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -255,23 +254,7 @@
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
       <workItem from="1716429675785" duration="15427000" />
-      <workItem from="1717459031973" duration="61692000" />
-    </task>
-    <task id="LOCAL-00014" summary="&quot;Got rid of suggestion warnings, ane reorganized&quot;">
-      <option name="closed" value="true" />
-      <created>1705959132274</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1705959132274</updated>
-    </task>
-    <task id="LOCAL-00015" summary="&quot;fixed pawn issues and Renamed methods to be more descriptive&quot;">
-      <option name="closed" value="true" />
-      <created>1705960347515</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1705960347515</updated>
+      <workItem from="1717459031973" duration="62563000" />
     </task>
     <task id="LOCAL-00016" summary="&quot;simplified limited chess movements. Switched ChessMove to record&quot;">
       <option name="closed" value="true" />
@@ -649,7 +632,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718402324389</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="&quot;Got a lot of self tests to run&quot;">
+      <option name="closed" value="true" />
+      <created>1718405796471</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1718405796471</updated>
+    </task>
+    <task id="LOCAL-00064" summary="&quot;All ServerFacadeTests pass&quot;">
+      <option name="closed" value="true" />
+      <created>1718405983236</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1718405983236</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,8 +666,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;cleanup&quot;" />
-    <MESSAGE value="&quot;added some TODO&quot;" />
     <MESSAGE value="&quot;future notes&quot;" />
     <MESSAGE value="&quot;Added all service tests&quot;" />
     <MESSAGE value="&quot;notes, added files, added dependencies&quot;" />
@@ -692,7 +689,9 @@
     <MESSAGE value="&quot;removed unused code&quot;" />
     <MESSAGE value="&quot;setup phase 5 structure&quot;" />
     <MESSAGE value="&quot;functionality added for pre and post login&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;functionality added for pre and post login&quot;" />
+    <MESSAGE value="&quot;Got a lot of self tests to run&quot;" />
+    <MESSAGE value="&quot;All ServerFacadeTests pass&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;All ServerFacadeTests pass&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

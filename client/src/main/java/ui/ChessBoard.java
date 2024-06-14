@@ -93,6 +93,15 @@ public class ChessBoard {
                     currentChar = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? WHITE_BISHOP : BLACK_BISHOP;
                     break;
             }
+            // Set the text color to ensure visibility on both white and black squares
+            boolean isWhiteSquare = (row + col) % 2 == 0;
+            if (isWhiteSquare && piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
+                currentColor = SET_TEXT_COLOR_BLACK; // White piece on white square, use black color
+            } else if (!isWhiteSquare && piece.getTeamColor() == ChessGame.TeamColor.BLACK) {
+                currentColor = SET_TEXT_COLOR_WHITE; // Black piece on black square, use white color
+            } else {
+                currentColor = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? SET_TEXT_COLOR_WHITE : SET_TEXT_COLOR_BLACK;
+            }
 
         }
     }

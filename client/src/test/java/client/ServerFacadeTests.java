@@ -171,6 +171,7 @@ public class ServerFacadeTests {
         // Verify the database is empty using the new auth token
         List<GameData> games = facade.listGames(newAuthData.authToken());
         assertTrue(games.isEmpty(), "Database should be empty after clear");
+        facade.clearDatabase();
     }
 
 

@@ -131,20 +131,21 @@ public class Main {
             System.out.println("List of games:");
             gameNumberToIdMap.clear();
             for (int i = 0; i < games.size(); i++) {
-                gameNumberToIdMap.put(i + 1, games.get(i).getGameID());
-                System.out.println((i + 1) + ". " + games.get(i).getGameName());
+                GameData game = games.get(i);
+                gameNumberToIdMap.put(i + 1, game.getGameID());
+                System.out.println((i + 1) + ". " + game.getGameName() + " - White: " + game.getWhiteUsername() + ", Black: " + game.getBlackUsername());
             }
         } catch (Exception e) {
             System.out.println("Failed to list games: " + e.getMessage());
         }
     }
-
+//TODO move all inside of try block
     private static void handlePlayGame() {
-        System.out.println("Enter game number: ");
-        int gameNumber = Integer.parseInt(SCANNER.nextLine().trim());
-        System.out.println("Enter color (white/black): ");
-        String color = SCANNER.nextLine().trim().toUpperCase();
         try {
+            System.out.println("Enter game number: ");
+            int gameNumber = Integer.parseInt(SCANNER.nextLine().trim());
+            System.out.println("Enter color (white/black): ");
+            String color = SCANNER.nextLine().trim().toUpperCase();
             Integer gameId = gameNumberToIdMap.get(gameNumber);
             if (gameId == null) {
                 System.out.println("Invalid game number");
@@ -167,7 +168,9 @@ public class Main {
                 System.out.println("Invalid game number");
                 return;
             }
-            serverFacade.joinGame(authData.authToken(), new JoinGameRequest(null, gameId));
+            //TODO test this
+            ChessBoard.drawInitialBoard("White");
+            //serverFacade.joinGame(authData.authToken(), new JoinGameRequest(null, gameId));
             System.out.println("Joined game as observer successfully");
         } catch (Exception e) {
             System.out.println("Failed to join game as observer: " + e.getMessage());

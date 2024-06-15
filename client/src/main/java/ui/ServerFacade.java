@@ -82,8 +82,8 @@ public class ServerFacade {
             throwFailure(http);
             return type != null ? readBody(http, type) : null;
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new IOException(ex);
+            //ex.printStackTrace();
+            throw new IOException(ex.getMessage(),ex);
         } finally {
             if (http != null) {
                 http.disconnect();

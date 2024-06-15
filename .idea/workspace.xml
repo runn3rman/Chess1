@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;removed logging statements&quot;">
+    <list default="true" id="e2127a23-f6c5-4361-9314-19f7fd19bf87" name="Changes" comment="&quot;removed more unused comments&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ChessBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,8 +227,8 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.ServerFacadeTests.clearDatabaseSuccess" />
+        <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.ServerFacadeTests.clearDatabaseFailure" />
       </list>
     </recent_temporary>
@@ -253,31 +257,7 @@
       <workItem from="1716403907952" duration="1008000" />
       <workItem from="1716424773631" duration="2754000" />
       <workItem from="1716429675785" duration="15427000" />
-      <workItem from="1717459031973" duration="63486000" />
-    </task>
-    <task id="LOCAL-00019" summary="&quot;isInCheck&quot;">
-      <option name="closed" value="true" />
-      <created>1707258488513</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1707258488513</updated>
-    </task>
-    <task id="LOCAL-00020" summary="&quot;checkmate&quot;">
-      <option name="closed" value="true" />
-      <created>1707258515449</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1707258515449</updated>
-    </task>
-    <task id="LOCAL-00021" summary="&quot;stalemate&quot;">
-      <option name="closed" value="true" />
-      <created>1707258539167</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1707258539167</updated>
+      <workItem from="1717459031973" duration="67024000" />
     </task>
     <task id="LOCAL-00022" summary="&quot;validMoves&quot;">
       <option name="closed" value="true" />
@@ -647,7 +627,31 @@
       <option name="project" value="LOCAL" />
       <updated>1718407100823</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="&quot;fixed my chess board mostly&quot;">
+      <option name="closed" value="true" />
+      <created>1718407894569</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1718407894569</updated>
+    </task>
+    <task id="LOCAL-00069" summary="&quot;fixed my chess board color problems&quot;">
+      <option name="closed" value="true" />
+      <created>1718407911536</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1718407911536</updated>
+    </task>
+    <task id="LOCAL-00070" summary="&quot;removed more unused comments&quot;">
+      <option name="closed" value="true" />
+      <created>1718407973978</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1718407973978</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,9 +669,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;Modified daos to be interfaces&quot;" />
-    <MESSAGE value="&quot;Added Sql classes, password hashing, Server functionality&quot;" />
-    <MESSAGE value="&quot;Made tests pass for phase 3&quot;" />
     <MESSAGE value="&quot;Changed the bcrypt package and integrated it into my code&quot;" />
     <MESSAGE value="&quot;Changed the bcrypt package and integrated it into register and login services&quot;" />
     <MESSAGE value="&quot;removed service definition redundancies&quot;" />
@@ -690,7 +691,10 @@
     <MESSAGE value="&quot;game number tracking&quot;" />
     <MESSAGE value="&quot;removed unused methods and renamed scanner&quot;" />
     <MESSAGE value="&quot;removed logging statements&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;removed logging statements&quot;" />
+    <MESSAGE value="&quot;fixed my chess board mostly&quot;" />
+    <MESSAGE value="&quot;fixed my chess board color problems&quot;" />
+    <MESSAGE value="&quot;removed more unused comments&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;removed more unused comments&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

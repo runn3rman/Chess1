@@ -46,9 +46,9 @@ public class ChessBoard {
                 setCurrentCharAndColor(row, col, whitePerspective);
                 boolean isWhiteSquare = (row + col) % 2 != 0;
                 if (isWhiteSquare) {
-                    out.print(SET_BG_COLOR_WHITE + currentColor + currentChar + RESET_TEXT_COLOR);
+                    out.print((SET_BG_COLOR_BLUE) + currentColor + currentChar + RESET_TEXT_COLOR);
                 } else {
-                    out.print(SET_BG_COLOR_BLACK + currentColor + currentChar + RESET_TEXT_COLOR);
+                    out.print((SET_BG_COLOR_DARK_GREY) + currentColor + currentChar + RESET_TEXT_COLOR);
                 }
             }
             // Print the row header again at the end of the row with a grey background
@@ -60,7 +60,7 @@ public class ChessBoard {
     }
 
     private static void drawHeaders(PrintStream out, boolean whitePerspective) {
-        String[] headers = {" a ", " b ", " c ", " d ", " e ", " f ", " g ", " h "};
+        String[] headers = whitePerspective ? new String[]{" a ", " b ", " c ", " d ", " e ", " f ", " g ", " h "} : new String[]{" h ", " g ", " f ", " e ", " d ", " c ", " b ", " a "};
         out.print(SET_BG_COLOR_LIGHT_GREY + "   " + RESET_BG_COLOR); // Left corner
         for (String header : headers) {
             out.print(SET_BG_COLOR_LIGHT_GREY + SET_TEXT_COLOR_BLACK + header + RESET_TEXT_COLOR + RESET_BG_COLOR);
@@ -72,7 +72,7 @@ public class ChessBoard {
     private static void setCurrentCharAndColor(int row, int col, boolean whitePerspective) {
         int boardRow = whitePerspective ? 9 - row : row;
         int boardCol = whitePerspective ? col : 9 - col;
-        ChessPiece piece = getPiece(boardRow, boardCol);
+        ChessPiece piece = getPiece(boardRow, boardCol, whitePerspective);
         if (piece == null) {
             currentChar = EMPTY;
             currentColor = SET_TEXT_COLOR_BLACK;
@@ -98,18 +98,14 @@ public class ChessBoard {
                     break;
             }
             // Set the text color to ensure visibility on both white and black squares
-            boolean isWhiteSquare = (row + col) % 2 != 0;
-            if (isWhiteSquare && piece.getTeamColor() == ChessGame.TeamColor.WHITE) {
-                currentColor = SET_TEXT_COLOR_BLACK; // White piece on white square, use black color
-            } else if (!isWhiteSquare && piece.getTeamColor() == ChessGame.TeamColor.BLACK) {
-                currentColor = SET_TEXT_COLOR_WHITE; // Black piece on black square, use white color
-            } else {
                 currentColor = piece.getTeamColor() == ChessGame.TeamColor.WHITE ? SET_TEXT_COLOR_WHITE : SET_TEXT_COLOR_BLACK;
-            }
+
         }
     }
 
-    private static ChessPiece getPiece(int row, int col) {
-        return board.getPiece(new ChessPosition(row, col));
+    private static ChessPiece getPiece(int row, int col, boolean whitePerspective) {
+        int adjustedRow = whitePerspective ? 9 - row : row;
+        int adjustedCol = whitePerspective ? col : 9 - col;
+        return board.getPiece(new ChessPosition(adjustedRow, adjustedCol));
     }
 }

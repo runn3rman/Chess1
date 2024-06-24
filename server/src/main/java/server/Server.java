@@ -5,6 +5,12 @@ import handlers.*;
 import service.*;
 import spark.*;
 
+import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
+import org.eclipse.jetty.websocket.api.annotations.WebSocket;
+
 import java.sql.SQLException;
 
 public class Server {
@@ -16,7 +22,8 @@ public class Server {
 
     public int run(int desiredPort) {
 
-        // Try-catch block to set up tables
+        //TODO add websocket
+        //Try-catch block to set up tables
         try {
             DatabaseManager.createDatabase();
             DatabaseManager.initializeDatabase();
@@ -58,6 +65,8 @@ public class Server {
         Spark.post("/game", createGameHandler::handleRequest);
         Spark.get("/game", listGamesHandler::handleRequest);
         Spark.put("/game", joinGameHandler::handleRequest);
+        // Add WebSocket endpoint
+        webSocket("/ws", WebSocketHandler.class);
 
         Spark.awaitInitialization();
         return Spark.port();
